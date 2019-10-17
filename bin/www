@@ -27,10 +27,25 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-mongoose.connect('mongodb://'+process.env.DB_LOGIN+':'+process.env.DB_PSWD+'@'+process.env.DB_HOST+":"+process.env.DB_PORT+"/"+process.env.DB_NAME+'?authSource=admin', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+
+//  let connection ='mongodb://'+process.env.DB_LOGIN+':'+process.env.DB_PSWD+'@'+process.env.DB_HOST+":"+process.env.DB_PORT+"/"+process.env.DB_NAME+'?authSource=admin';
+
+
+if(process.env.DB_LOGIN && process.env.DB_PSWD){
+  mongoParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    user: process.env.DB_LOGIN,
+    pass: process.env.DB_PSWD
+  }
+}else{
+  mongoParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+}
+
+mongoose.connect('mongodb://'+process.env.DB_HOST+":"+process.env.DB_PORT+"/"+process.env.DB_NAME+'?authSource=admin', mongoParams);
 
 app.locals.db = mongoose.connection;
 app.locals.db.once('open', () => server.listen(port));

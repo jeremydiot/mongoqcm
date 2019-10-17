@@ -6,7 +6,7 @@ const usersSchema = new Schema({
 	email: {type: String, required: true},
 	pwd: {type: String, required: true },
 	questions: [
-		{[type: Schema.Types.ObjectId]},
+		{type: Schema.Types.ObjectId},
 	]
 });
 
