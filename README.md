@@ -1,6 +1,6 @@
 # mongoqcm
 
-## menbres du groupe
+## membres du groupe
 - Chloé NOGER
 - Matteo MOISAN
 - Jérémy DIOT
