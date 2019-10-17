@@ -2,12 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const subjectsSchema = new Schema({
-// schéma de la collection
+	name: {type: String, required: true},
+	questions: [{
+		id: {type: String, required: true},
+		title: {type: String, required: true},
+		answers: [{
+			value: {type: String, required: true},
+			correct: {type: Boolean, required: true},
+		}]
+	}]
 });
-
-// subjectsSchema.pre('updateOne', function(next){
-//     this.lastupdate = Date.now;
-//     next();
-// });
 
 module.exports = mongoose.model('Subject', subjectsSchema);
