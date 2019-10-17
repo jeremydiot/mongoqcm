@@ -2,12 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const usersSchema = new Schema({
-// schéma de la collection
+	username: {type: String, required: true},
+	email: {type: String, required: true},
+	pwd: {type: String, required: true }
 });
-
-// usersSchema.pre('updateOne', function(next){
-//     this.lastupdate = Date.now;
-//     next();
-// });
 
 module.exports = mongoose.model('User', usersSchema);
