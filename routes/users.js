@@ -4,29 +4,26 @@ const User = require('../models/Users');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  User.find().exec((err, users)=> res.json(users));
 });
 
 router.get('/:id', function(req, res, next) {
   const {id} = req.params;
-
-  res.send('respond with a resource');
+  User.findById(req.params.id).exec((err, user) => res.json(user));
 });
 
 router.post('/', function(req, res, next) {
-  res.send('respond with a resource');
+  User.create(req.body,(err, users)=> res.json(users));
 });
 
 router.put('/:id', function(req, res, next) {
   const {id} = req.params;
-
-  res.send('respond with a resource');
+  User.updateOne({_id:id},{ $set: req.body },(err, user)=>res.json(user));
 });
 
 router.delete('/:id', function(req, res, next) {
   const {id} = req.params;
-
-  res.send('respond with a resource');
+  User.remove({_id:id}).then((result)=>res.json(result));
 });
 
 module.exports = router;
