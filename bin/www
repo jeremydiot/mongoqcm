@@ -30,6 +30,7 @@ var server = http.createServer(app);
 
 //  let connection ='mongodb://'+process.env.DB_LOGIN+':'+process.env.DB_PSWD+'@'+process.env.DB_HOST+":"+process.env.DB_PORT+"/"+process.env.DB_NAME+'?authSource=admin';
 
+let mongoParams;
 
 if(process.env.DB_LOGIN && process.env.DB_PSWD){
   mongoParams = {
@@ -44,6 +45,8 @@ if(process.env.DB_LOGIN && process.env.DB_PSWD){
     useUnifiedTopology: true
   }
 }
+
+console.log(mongoParams);
 
 mongoose.connect('mongodb://'+process.env.DB_HOST+":"+process.env.DB_PORT+"/"+process.env.DB_NAME+'?authSource=admin', mongoParams);
 
