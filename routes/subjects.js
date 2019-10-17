@@ -4,28 +4,25 @@ const Subjects = require('../models/Subjects');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  Subjects.find().exec((err, subjects)=> res.json(subjects));
 });
 
 router.get('/:id', function(req, res, next) {
     const {id} = req.params;
-
-    res.send('respond with a resource');
+    Subjects.findById(req.params.id).exec((err, subject) => res.json(subject));
 });
 
 router.post('/', function(req, res, next) {
-    res.send('respond with a resource');
+    Subjects.create(req.body,(err, subjects)=> res.json(subjects));
 });
 
 router.put('/:id', function(req, res, next) {
     const {id} = req.params;
-
-    res.send('respond with a resource');
+    Subjects.updateOne({_id:id},{ $set: req.body },(err, subject)=>res.json(subject));
 });
 
 router.delete('/:id', function(req, res, next) {
     const {id} = req.params;
-
-    res.send('respond with a resource');
+    Subjects.remove({_id:id}).then((result)=>res.json(result));
 });
 module.exports = router;
