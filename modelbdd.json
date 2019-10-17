@@ -6,13 +6,29 @@ subject
 	[
 		{
 			"id": "1",
-			"title": "Question 1",
-			"correct_answer": "Correct answer",
-			"wrong_answers":
+			"title": "Question 1",			
+			"answers":
 			[
-				"Wrong answer 1",
-				"Wrong answer 2",
-				"Wrong answer 3"
+				{
+					"id": "1",
+					"value": "Wrong answer 1",
+					"correct": false
+				},
+				{
+					"id": "2",
+					"value": "Correct answer",
+					"correct": true
+				},
+				{
+					"id": "3",
+					"value": "Wrong answer 2",
+					"correct": false
+				},
+				{
+					"id": "4",
+					"value": "Wrong answer 3",
+					"correct": false
+				}
 			]
 		}		
 	]
