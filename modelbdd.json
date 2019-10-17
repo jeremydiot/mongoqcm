@@ -10,22 +10,18 @@ subject
 			"answers":
 			[
 				{
-					"id": "1",
 					"value": "Wrong answer 1",
 					"correct": false
 				},
 				{
-					"id": "2",
 					"value": "Correct answer",
 					"correct": true
 				},
 				{
-					"id": "3",
 					"value": "Wrong answer 2",
 					"correct": false
 				},
 				{
-					"id": "4",
 					"value": "Wrong answer 3",
 					"correct": false
 				}
