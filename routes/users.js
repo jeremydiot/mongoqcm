@@ -18,12 +18,12 @@ router.post('/', function(req, res, next) {
 
 router.put('/:id', function(req, res, next) {
   const {id} = req.params;
-  User.updateOne({_id:id},{ $set: req.body },(err, user)=>res.json(user));
+  User.updateOne({_id:id},{ $set: req.body},(err, user)=>res.json(user));
 });
 
 router.delete('/:id', function(req, res, next) {
   const {id} = req.params;
-  User.remove({_id:id}).then((result)=>res.json(result));
+  User.deleteOne({_id:id}).then((result)=>res.json(result));
 });
 
 module.exports = router;
