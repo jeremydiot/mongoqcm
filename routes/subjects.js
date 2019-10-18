@@ -13,6 +13,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+    // console.log(req.body);
     Subjects.create(req.body,(err, subjects)=> res.json(subjects));
 });
 
@@ -23,6 +24,6 @@ router.put('/:id', function(req, res, next) {
 
 router.delete('/:id', function(req, res, next) {
     const {id} = req.params;
-    Subjects.remove({_id:id}).then((result)=>res.json(result));
+    Subjects.deleteOne({_id:id}).then((result)=>res.json(result));
 });
 module.exports = router;
