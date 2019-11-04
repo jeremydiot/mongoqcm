@@ -4,7 +4,17 @@ const Subjects = require('../models/Subjects');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  Subjects.find().exec((err, subjects)=> res.json(subjects));
+
+    Subjects.find().exec((err, subjects)=>{
+        let result = [];
+        subjects.forEach((elem,id)=>{
+            let count = elem.questions.length;
+            elem = JSON.parse(JSON.stringify(elem))
+            elem.questions = count;
+            result.push(elem);
+        });
+        res.json(result);
+    });
 });
 
 router.get('/:id', function(req, res, next) {
@@ -24,6 +34,8 @@ router.put('/:id', function(req, res, next) {
 
 router.delete('/:id', function(req, res, next) {
     const {id} = req.params;
-    Subjects.deleteOne({_id:id}).then((result)=>res.json(result));
+    Subjects.deleteOne({_id:id}).then((result)=>{
+        res.json(result)
+    });
 });
 module.exports = router;

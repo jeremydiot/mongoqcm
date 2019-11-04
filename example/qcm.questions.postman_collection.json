@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "898009a3-9ca7-4e29-880c-5b6f551cc09f",
+		"name": "qcm.questions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/questions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/questions/5dbffa476289e639d019a7de",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"questions",
+						"5dbffa476289e639d019a7de"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete one",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/questions/5dc01e71f14d2d69fd507f44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"questions",
+						"5dc01e71f14d2d69fd507f44"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update one",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"question\",\n\t\"answers\":[\n\t\t\t{\n\t\t\t\t\"value\":\"mauvaiseReponse\",\n\t\t\t\t\"correct\":false\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"value\":\"bonneReponse\",\n\t\t\t\t\"correct\":true\n\t\t\t}\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3005/questions/5dbffa476289e639d019a7de",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"questions",
+						"5dbffa476289e639d019a7de"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add one",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\":\"5dbb326f289cde09eba11c26\",\n\t\"subjectId\":\"5dbff7502d063c36ef14e400\",\n\t\"question\":{\n\t\t\"title\":\"question\",\n\t\t\"answers\":[\n\t\t\t\t{\n\t\t\t\t\t\"value\":\"mauvaiseReponse\",\n\t\t\t\t\t\"correct\":false\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"value\":\"bonneReponse\",\n\t\t\t\t\t\"correct\":true\n\t\t\t\t}\n\t\t]\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3005/questions/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"questions",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
